@@ -7,18 +7,22 @@ import { Observable }  from 'rxjs/Rx';
 @Injectable()
 export class ModuleInfoService {
     constructor(private http: Http) {
-
     }
 
     private handleError(error: any) {
-        
-        return Observable.throw('error');
+        if (error.status === 404) {
+            return Observable.throw("No product.json file was found at this location.");
+        }
+        return Observable.throw(error.text);
     }
 
-    public loadDetails(module: ModuleMetadata): Observable<ModuleMetadata> {
-        var url = module.location + "/product.json";
+    public loadDetails(location: string): Observable<ModuleMetadata> {
+        var url = location.endsWith("product.json") ? location : location + "/product.json";
         return this.http.get(url)
-            .map(response => response.json())
+            .map(response => {
+                var foo =  response.json();
+                return foo;
+            })
             .catch(this.handleError);
     }
 

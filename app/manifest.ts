@@ -31,8 +31,8 @@ export class Manifest {
 };
 
 export interface ModuleMetadata {
-    name: string;
     location: string;
+    name?: string;
     isBeta?: boolean;
     version?: string;
     prefix?: string;

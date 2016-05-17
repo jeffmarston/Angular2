@@ -2,20 +2,18 @@
     <h1>{{title}}</h1>
     <table class="moduleTable">
         <tr>
+            <th class="deleteColumn"></th>
             <th>URL</th>
             <th>Name</th>
             <th>Version</th>
             <th>Check</th>
         </tr>
         <tr *ngFor="let module of modules; let idx = index">
+            <td class="deleteColumn">
+                <button (click)="deleteModule(module)"><i class="fa fa-times"></i></button>
+            </td>
             <td>
-                <button (click)="deleteModule(module)">
-                    <i class="fa fa-times"></i>
-                </button>
-                <input #urlBox
-                        [(ngModel)]="module.location"
-                        (blur)="applyUrl(module)"
-                        placeholder="location of product.json">
+                <input #urlBox [(ngModel)]="module.location" (blur)="updateModuleInfo(module)" placeholder="location of product.json" />
             </td>
             <td>{{module.name}}</td>
             <td>{{module.version}}</td>
@@ -24,6 +22,13 @@
                 <i *ngIf="module.warnings" class="fa fa-exclamation-triangle fw-warning-icon" title="{{module.warnings}}"></i>
                 <i *ngIf="module.errors" class="fa fa-times-circle fw-error-icon" title="{{module.errors}}"></i>
             </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input #newUrl (blur)="addModule(newUrl)" placeholder="add new" /></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 
