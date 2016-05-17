@@ -14,7 +14,7 @@
                 </button>
                 <input #urlBox
                         [(ngModel)]="module.location"
-                        (blur)="applyUrl(urlBox)"
+                        (blur)="applyUrl(module)"
                         placeholder="location of product.json">
             </td>
             <td>{{module.name}}</td>
