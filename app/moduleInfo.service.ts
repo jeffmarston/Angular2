@@ -1,8 +1,8 @@
 import { Injectable } from 'angular2/core';
 import { Http, Response } from 'angular2/http';
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 import { Manifest, ModuleMetadata } from "./manifest";
-import 'rxjs/Rx';
+import { Observable }  from 'rxjs/Rx';
 
 @Injectable()
 export class ModuleInfoService {
@@ -11,8 +11,8 @@ export class ModuleInfoService {
     }
 
     private handleError(error: any) {
+        
         return Observable.throw('error');
-        //return Observable.throw(error.json().error || 'Server error');
     }
 
     public loadDetails(module: ModuleMetadata): Observable<ModuleMetadata> {

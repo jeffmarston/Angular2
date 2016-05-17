@@ -21,18 +21,28 @@ export class AppComponent {
 
     loadDefaults() {
         this.modules.forEach(element => {
-            var src = this.modService.loadDetails(element);
-
+            this.updateModuleInfo(element);
+        });
+    }
+    
+    applyUrl(element) {
+        this.updateModuleInfo(element);
+    }
+    
+    updateModuleInfo(element) {
+        var src = this.modService.loadDetails(element);
+             
             src.subscribe(o => {
                 element.version = o.version;
                 element.name = o.name;
-                element.errors = o.errors;
                 if (!element.version) {
                     element.warnings = "School bus";
                 }
-            })
-            //.catch(this.handleError);
-        });
+            }, error => {
+                element.errors = "zowie";
+            }, () => {
+                // complete
+            });
     }
 
     save(ev) {
