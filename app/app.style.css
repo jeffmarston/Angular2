@@ -1,0 +1,65 @@
+.component-wrapper {
+    background: hsla(120, 100%, 100%, 0.5); 
+    border: 1px solid gray; 
+    padding: 8px;
+}
+
+h1 {
+  color: #234; 
+  /*font-family: Arial, Helvetica, sans-serif;   
+  font-size: 250%;*/
+}
+
+.actionButtons {
+    width: 140px;
+    float:right;
+    margin: 8px 0 8px 8px;
+}
+
+button {
+    padding: 4px;
+    border: 1px solid gray;
+    background: lightgray;
+    color: black;
+}
+
+button:hover {
+    background: #99aaee;
+    border: 1px solid gray;
+}
+
+.moduleTable { 
+    border: 1px solid gray;
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+.moduleTable th { 
+    text-align: left;
+    background: #ddd;
+    padding: 4px;
+}      
+
+.moduleTable td > input {
+    width: 90%;
+    border: none;
+    font-size: 1em;
+    padding: 4px;
+}
+
+.moduleTable tr:hover {
+    background: #def;
+}
+
+.fw-check-icon {
+    color: green;
+}
+
+.fw-warning-icon {
+    color: goldenrod;
+}
+
+.fw-error-icon {
+    color: darkred;
+}

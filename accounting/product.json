@@ -1,0 +1,7 @@
+{
+    "main" : "main.1.53.0.20.js",
+    "css" : "main.1.53.0.20.css",
+    "version" : "0.4.32",
+    "name" : "accounting",
+    "prefix" : "acc"
+}

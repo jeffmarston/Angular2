@@ -1,0 +1,31 @@
+<div class="component-wrapper">
+    <h1>{{title}}</h1>
+    <table class="moduleTable">
+        <tr>
+            <th>URL</th>
+            <th>Name</th>
+            <th>Version</th>
+            <th>Check</th>
+        </tr>
+        <tr *ngFor="let module of modules; let idx = index">
+            <td>
+                <button (click)="deleteModule(module)">
+                    <i class="fa fa-times"></i>
+                </button>
+                <input [(ngModel)]="module.location" placeholder="url">
+            </td>
+            <td>{{module.name}}</td>
+            <td>{{module.version}}</td>
+            <td>
+                <i *ngIf="!(module.warnings || module.error)" class="fa fa-check-circle fw-check-icon" title="Looks good!"></i>
+                <i *ngIf="module.warnings" class="fa fa-exclamation-triangle fw-warning-icon" title="{{module.warnings}}"></i>
+                <i *ngIf="module.errors" class="fa fa-times-circle fw-error-icon" title="{{module.errors}}"></i>
+            </td>
+        </tr>
+    </table>
+
+    <div style="height: 28px; padding: 8px 0;">
+        <button class="actionButtons" (click)="save($event)">Save</button>
+        <button class="actionButtons" (click)="loadDefaults()">Load Defaults</button>
+    </div>
+</div>
