@@ -20,15 +20,12 @@
             <td>
                 <i *ngIf="!(module.warnings || module.errors)" class="fa fa-check-circle fw-check-icon" title="Looks good!"></i>
                 <i *ngIf="module.warnings" class="fa fa-exclamation-triangle fw-warning-icon" title="{{module.warnings}}"></i>
-                <i *ngIf="module.errors" class="fa fa-times-circle fw-error-icon" title="{{module.errors}}"></i>
+                <i *ngIf="module.errors" class="fa fa-exclamation-triangle fw-error-icon" title="{{module.errors}}"></i>
             </td>
         </tr>
         <tr>
             <td></td>
             <td><input #newUrl (blur)="addModule(newUrl)" placeholder="add new" /></td>
-            <td></td>
-            <td></td>
-            <td></td>
         </tr>
     </table>
 

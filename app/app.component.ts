@@ -16,8 +16,7 @@ export class AppComponent {
     private modules: ModuleMetadata[];
 
     constructor(private modService: ModuleInfoService) {
-        this.modules = (new Manifest()).internalModules;   
-        this.loadDefaults();
+        this.loadSavedManifest();
     }
 
     public addModule(location) {
@@ -33,23 +32,23 @@ export class AppComponent {
     public updateModuleInfo(mod: ModuleMetadata) {
         //trim trailing slashes
         mod.location = mod.location.replace(/\/+$/, "");
-        
+
         //if the user clears the location, delete the item
         if (mod.location.trim() === "") {
             this.deleteModule(mod);
-            return; 
+            return;
         }
-        
+
         // load the product.json
         var src = this.modService.loadDetails(mod.location);
-        
+
         //clear mod
         mod.warnings = null;
         mod.errors = null;
         mod.name = null;
         mod.version = null;
-        
-        src.subscribe(o => {            
+
+        src.subscribe(o => {
             mod.version = o.version;
             mod.name = o.name;
             mod.warnings = this.compileWarnings(o);
@@ -73,7 +72,6 @@ export class AppComponent {
     }
 
     public save(ev) {
-        alert(ev);
         localStorage.setItem('manifest', JSON.stringify(this.modules));
     }
 
@@ -81,8 +79,17 @@ export class AppComponent {
         var idx = this.modules.indexOf(mod);
         this.modules.splice(idx, 1);
     }
+
+    public loadDefaults() {
+        this.modules = this.modules = (new Manifest()).internalModules;
+        this.modules.forEach(mod => {
+            this.updateModuleInfo(mod);
+        });
+    }
     
-    public loadDefaults() {     
+    private loadSavedManifest() {
+        var loadedJson = localStorage.getItem('manifest');
+        this.modules = JSON.parse(loadedJson);
         this.modules.forEach(mod => {
             this.updateModuleInfo(mod);
         });

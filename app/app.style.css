@@ -18,22 +18,23 @@ h1 {
     width: 140px;
     float:right;
     margin: 8px 0 8px 8px;
-    xborder-radius: 6px;
+    border-radius: 4px;
+    border: 1px solid gray;
 }
 
 button {
     padding: 4px;
-    border: 1px solid gray;
-    background: lightgray;
+    border: 1px solid transparent;
+    background: #ccc;
     color: black;
     width: 24px;
     height: 24px;
     border-radius: 12px;
+    margin-left: 4px;
 }
 
 button:hover {
     background: #99aaee;
-    border: 1px solid gray;
 }
 
 .moduleTable { 
@@ -50,7 +51,7 @@ button:hover {
 }      
 
 .moduleTable td > input {
-    width: 90%;
+    width: 100%;
     border: none;
     font-size: 1em;
     padding: 4px;
