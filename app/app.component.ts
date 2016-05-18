@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 
 @Component({
     selector: 'my-app',
-    templateUrl: './app/app.template.html',
+    templateUrl: './app/app.template.html', 
     styleUrls: ['app/app.style.css'],
     providers: [HTTP_PROVIDERS, ModuleInfoService]
 })

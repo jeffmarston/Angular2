@@ -1,25 +1,26 @@
 <html>
-  <head>
-    <title>Module Configuration</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.css">
 
-    <!-- 1. Load libraries -->
-    <!-- IE required polyfills, in this exact order -->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+<head>
+  <title>Module Configuration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.css">
 
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/http.js"></script> 
- 
-    <!-- 2. Configure SystemJS -->
-    <script>
-      System.config({
+  <!-- 1. Load libraries -->
+  <!-- IE required polyfills, in this exact order -->
+  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+  <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="node_modules/angular2/bundles/http.js"></script>
+
+  <!-- 2. Configure SystemJS -->
+  <script>
+    System.config({
         packages: {        
           app: {
             format: 'register',
@@ -29,11 +30,19 @@
       });
       System.import('app/main')
             .then(null, console.error.bind(console));
-    </script>
-  </head>
+  </script>
+</head>
 
-  <!-- http://previews.123rf.com/images/malkani/malkani1307/malkani130700048/20995672-Paisley-silver-vector-wallpaper-Stock-Vector-pattern-paisley-background.jpg -->
-  <body style="background-image: url('http://2.bp.blogspot.com/-WxPviDrP8m8/U4xsSjdMMtI/AAAAAAAAoOg/xOpDw0NEsxY/s1600/HT-IM3-War-Machine-Mark-II-067.jpg')">
-    <my-app>Loading...</my-app>
-  </body>
+<!-- http://previews.123rf.com/images/malkani/malkani1307/malkani130700048/20995672-Paisley-silver-vector-wallpaper-Stock-Vector-pattern-paisley-background.jpg -->
+
+<body style="background-image: url('http://2.bp.blogspot.com/-WxPviDrP8m8/U4xsSjdMMtI/AAAAAAAAoOg/xOpDw0NEsxY/s1600/HT-IM3-War-Machine-Mark-II-067.jpg')">
+  <my-app style="display: none;">Loading...</my-app>
+
+  <div style="display: flex;">
+    <user-browser>Loading...</user-browser>
+    <button style="width: 100px; height: 100px;">zippitydo</button>
+  </div>
+
+</body>
+
 </html>
