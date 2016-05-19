@@ -27,7 +27,6 @@ export class Manifest {
         { name: '', location: '/sandbox' },
         { name: '', location: '/streamingsandbox' }
     ]);
-
 };
 
 export interface ModuleMetadata {

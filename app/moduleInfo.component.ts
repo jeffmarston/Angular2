@@ -2,7 +2,7 @@ import { Component } from 'angular2/core';
 import { Manifest, ModuleMetadata } from "./manifest";
 import { ModuleInfoService } from "./moduleInfo.service"
 import { HTTP_PROVIDERS, Http } from 'angular2/http';
-import 'rxjs/Rx';
+import { Observable }  from 'rxjs/Rx';
 
 @Component({
     selector: 'module-info',

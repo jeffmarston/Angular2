@@ -48,13 +48,18 @@ button:hover {
     text-align: left;
     background: #ddd;
     padding: 4px;
-}      
+}
 
 .moduleTable td > input {
     width: 100%;
     border: none;
-    font-size: 1em;
+    font-size: 16px;
     padding: 4px;
+}
+
+.moduleTable td > input[type=checkbox] {
+    width: 22px;
+    height: 22px;
 }
 
 .moduleTable tr:hover {

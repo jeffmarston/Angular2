@@ -4,6 +4,7 @@
         <tr>
             <th class="deleteColumn"></th>
             <th>URL</th>
+            <th>Beta</th>
             <th>Name</th>
             <th>Version</th>
             <th>Check</th>
@@ -13,7 +14,10 @@
                 <button (click)="deleteModule(module)"><i class="fa fa-times"></i></button>
             </td>
             <td>
-                <input #urlBox [(ngModel)]="module.location" (blur)="updateModuleInfo(module)" placeholder="location of product.json" />
+                <input [(ngModel)]="module.location" (blur)="updateModuleInfo(module)" placeholder="location of product.json" />
+            </td>
+            <td>
+                <input [(ngModel)]="module.isBeta" type="checkbox">
             </td>
             <td>{{module.name}}</td>
             <td>{{module.version}}</td>
