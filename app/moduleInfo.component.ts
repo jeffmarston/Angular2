@@ -5,9 +5,9 @@ import { HTTP_PROVIDERS, Http } from 'angular2/http';
 import 'rxjs/Rx';
 
 @Component({
-    selector: 'my-app',
-    templateUrl: './app/app.template.html',
-    styleUrls: ['app/app.style.css'],
+    selector: 'module-info',
+    templateUrl: './app/moduleInfo.template.html',
+    styleUrls: ['app/moduleInfo.style.css'],
     providers: [HTTP_PROVIDERS, ModuleInfoService]
 })
 
