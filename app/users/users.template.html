@@ -1,0 +1,29 @@
+<div class="user-browser-component">
+    <h1>{{title}}</h1>
+    <table class="moduleTable">
+        <tr>
+            <th class="deleteColumn"></th>
+            <th>Email</th>
+            <th>First</th>
+            <th>Last</th>
+        </tr>
+        <tr *ngFor="let user of users; let idx = index">
+            <td class="deleteColumn">
+                <button (click)="deleteModule(module)"><i class="fa fa-times"></i></button>
+            </td>
+            <td><input [(ngModel)]="user.email" (blur)="updateModuleInfo(user)" placeholder="email" /></td>
+            <td><input [(ngModel)]="user.first" (blur)="updateModuleInfo(user)" placeholder="email" /></td>
+            <td><input [(ngModel)]="user.last" (blur)="updateModuleInfo(user)" placeholder="email" /></td>
+        </tr>
+        <tr>
+            <td><i class="fa fa-plus" style="color: green; margin-left: 8px;"></i></td>
+            <td><input (blur)="addModule()" placeholder="email" /></td>
+            <td><input (blur)="addModule()" placeholder="first" /></td>
+            <td><input (blur)="addModule()" placeholder="last" /></td>
+        </tr>
+    </table>
+
+    <div style="height: 28px; padding: 8px 0;">
+        <button class="actionButtons" (click)="save($event)">Save</button>
+    </div>
+</div>

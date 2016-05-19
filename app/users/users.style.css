@@ -1,0 +1,64 @@
+.user-browser-component {
+    background: hsla(120, 100%, 100%, 0.5); 
+    border: 1px solid gray; 
+    padding: 8px;
+}
+
+:host {  
+    display: flex;
+}
+    
+h1 {
+  color: #234; 
+}
+
+.deleteColumn {
+    width: 25px;
+}
+
+.actionButtons {
+    width: 140px;
+    float:right;
+    margin: 8px 0 8px 8px;
+    border-radius: 4px;
+    border: 1px solid gray;
+}
+
+button {
+    padding: 4px;
+    border: 1px solid transparent;
+    background: #ccc;
+    color: black;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    margin-left: 4px;
+}
+
+button:hover {
+    background: #99aaee;
+}
+
+.moduleTable { 
+    border: 1px solid gray;
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+.moduleTable th { 
+    text-align: left;
+    background: #ddd;
+    padding: 4px;
+}      
+
+.moduleTable td > input {
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    padding: 4px;
+}
+
+.moduleTable tr:hover {
+    background: #def;
+}
