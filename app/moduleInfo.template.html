@@ -11,10 +11,16 @@
         </tr>
         <tr *ngFor="let module of modules; let idx = index">
             <td class="deleteColumn">
-                <button (click)="deleteModule(module)"><i class="fa fa-times"></i></button>
+                <button (click)="deleteModule(module)"
+                        *ngIf="!module.isRequired"
+                        class="deleteButton">
+                        <i class="fa fa-times"></i></button>
             </td>
             <td>
-                <input [(ngModel)]="module.location" (blur)="updateModuleInfo(module)" placeholder="location of product.json" />
+                <input [(ngModel)]="module.location" 
+                        (blur)="updateModuleInfo(module)" 
+                        [readonly]="module.isRequired"
+                        placeholder="location of product.json" />
             </td>
             <td>
                 <input [(ngModel)]="module.isBeta" type="checkbox">
@@ -29,12 +35,19 @@
         </tr>
         <tr>
             <td></td>
-            <td><input #newUrl (blur)="addModule(newUrl)" placeholder="add new" /></td>
+            <td><input #newUrl 
+                       (blur)="addModule(newUrl)"
+                       (keyup.enter)="addModule(newUrl)"
+                       placeholder="add new" /></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
 
     <div style="height: 28px; padding: 8px 0;">
-        <button class="actionButtons" (click)="save($event)">Save</button>
-        <button class="actionButtons" (click)="loadDefaults()">Load Defaults</button>
+        <button class="actionButton" (click)="save($event)">Save</button>
+        <button class="actionButton" (click)="loadDefaults()">Load Defaults</button>
     </div>
 </div>

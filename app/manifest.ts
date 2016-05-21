@@ -37,4 +37,5 @@ export interface ModuleMetadata {
     prefix?: string;
     warnings?: string;
     errors?: string;
+    isRequired?: boolean;
 }

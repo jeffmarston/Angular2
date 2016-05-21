@@ -19,19 +19,21 @@ export class AppComponent {
         this.loadSavedManifest();
     }
 
-    public addModule(location) {
-        if (location.value.trim() === "") return;
+    public addModule(control) {
+        if (control.value === "") return;
         var newItem = {
-            location: location.value
+            location: control.value
         };
         this.updateModuleInfo(newItem);
         this.modules.push(newItem);
-        location.value = "";
+        control.value = "";
+        control.focus();
     }
 
     public updateModuleInfo(mod: ModuleMetadata) {
-        //trim trailing slashes
-        mod.location = mod.location.replace(/\/+$/, "");
+        //trim trailing slashes and spaces
+        mod.location = mod.location.replace(/[ \t\r]+/g,"");
+        mod.location = mod.location.replace(/[\/]+$/, "");
 
         //if the user clears the location, delete the item
         if (mod.location.trim() === "") {
@@ -70,9 +72,15 @@ export class AppComponent {
         }
         return allWarnings ? allWarnings.join("\n") : null;
     }
-
+ 
     public save(ev) {
-        localStorage.setItem('manifest', JSON.stringify(this.modules));
+        var saveModules = [];
+        this.modules.forEach(mod => {
+            saveModules.push({ 
+                location: mod.location,
+                isBeta: mod.isBeta});
+        })
+        localStorage.setItem('manifest', JSON.stringify(saveModules));
     }
 
     public deleteModule(mod) {
@@ -81,17 +89,31 @@ export class AppComponent {
     }
 
     public loadDefaults() {
-        this.modules = this.modules = (new Manifest()).internalModules;
+        this.modules =  (new Manifest()).internalModules;
         this.modules.forEach(mod => {
             this.updateModuleInfo(mod);
         });
+        this.insertFramework();
     }
     
     private loadSavedManifest() {
         var loadedJson = localStorage.getItem('manifest');
-        this.modules = JSON.parse(loadedJson);
+        this.modules = JSON.parse(loadedJson);        
         this.modules.forEach(mod => {
             this.updateModuleInfo(mod);
         });
+        this.insertFramework();
+    }
+    
+    private insertFramework() {
+        if (this.modules[0].location !== "/ims") {
+            this.modules.splice(0, 0, { location: "/ims"});
+        }
+        if (this.modules[1].location !== "/ux") {
+            this.modules.splice(1, 0, { location: "/ux"});
+        }
+       this.modules[0].isRequired = true;
+       this.modules[1].isRequired = true;
+        
     }
 }
